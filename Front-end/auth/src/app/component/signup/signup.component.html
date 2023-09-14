@@ -1,0 +1,37 @@
+<div class="container p-5 text-center">
+    <form class="form-signin" (ngSubmit)="onSubmit()">
+
+      <img class="mb-5" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Join us by creating a new Account</h1>
+
+      <div class="d-grid gap-2">
+
+        <div class="p-2 ">
+          <label for="inputEmail" class="sr-only ">Name</label>
+          <input type="text"  class="form-control " [(ngModel)]="user.name" placeholder="Name"  name="user.name" required="" autofocus="">
+      </div>
+
+
+        <div class="p-1 ">
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email"  class="form-control" [(ngModel)]="user.email" name="user.email" placeholder="Email address" required="" autofocus="">    
+        </div>
+
+
+        <div class="p-1 ">
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password"  class="form-control" [(ngModel)]="user.password" name="user.password" placeholder="Password" required="">
+        </div>
+      </div>
+
+
+      
+      <div class="checkbox mb-3">
+        <!-- <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label> -->
+      </div>
+      <button class="btn btn-primary" type="submit">Sign in</button>
+      
+    </form>
+  </div>
