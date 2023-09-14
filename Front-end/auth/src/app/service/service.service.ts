@@ -12,12 +12,6 @@ export class ServiceService {
   URL="http://localhost:5000/api/"
 
 
-
-  // getUserToken(user: User) {
-  //   return this.http.post<authResponse>(`${this.URL}`+"user/login",user);
-  // }
-
-
   registeruser(user:User):Observable<User>{
     console.log("post hit")
     return this.http.post<User>(`${this.URL}`+"user/register",user);
@@ -28,6 +22,12 @@ export class ServiceService {
     return this.http.post(`${this.URL}`+"user/login",user);
   }
 
+  getAllPosts(token: string) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token}
+    }
+    return this.http.get(`${this.URL}`+ "posts" , options)
+  }
 
   constructor(private http: HttpClient) { }
 }

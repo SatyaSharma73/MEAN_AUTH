@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -29,13 +30,13 @@ export class LoginComponent {
         console.log(res);
 
         const token = JSON.stringify(res);
-
-        console.log(token);
+        const TOKEN=token.replace(/^"(.+(?="$))"$/, '$1')
+        console.log(TOKEN);
         console.log(this.user.email);
 
         localStorage.setItem('email', this.user.email!);
       //  localStorage.setItem('name', this.user.name!);
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', TOKEN);
         localStorage.setItem('loggedin', 'true');
 
         Swal.fire({
